@@ -514,7 +514,7 @@ dependencies = [
 ]
 
 [[package]]
-name = "varnish-counters"
+name = "varnish-counters-demo"
 version = "0.1.0"
 dependencies = [
  "anyhow",
