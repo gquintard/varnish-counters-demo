@@ -1,0 +1,14 @@
+use anyhow::Result;
+use varnish::vsc::VSCBuilder;
+
+fn main() -> Result<()>{
+    let mut vsc = VSCBuilder::new()
+        .include("LCK.*")?
+        .build()?;
+    
+    vsc.update();
+    for (_, stat) in vsc.stats() {
+        println!("{}: {}", stat.name, stat.get_raw_value());
+    }
+    Ok(())
+}
